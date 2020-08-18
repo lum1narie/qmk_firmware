@@ -50,31 +50,6 @@ void print_shingeta_record(shingeta_record_t *shingeta_record) {
 // from here
 
 /**
- * @brief reset flags in shingeta_record_t
- *
- * make is_shifted and is_alive false in record
- * @param shingeta_record record to reset
- */
-inline void reset_shingeta_record(shingeta_record_t *shingeta_record) {
-  shingeta_record->is_shifted = false;
-  shingeta_record->is_alive = false;
-  return;
-}
-
-/**
- * @brief convert keyrecord in shingeta_record_t into one 8bit integer
- *
- * compress into one 8bit number so as make it easy to be decoded in string
- *
- * @param shingeta_record record to convert
- * @return code that is 8bit number
- */
-inline uint8_t get_code_from_shingeta_record(
-    shingeta_record_t *shingeta_record) {
-  return position_to_8bit(shingeta_record->record.event.key);
-}
-
-/**
  * @brief get string match with (code1, code2), or (code1, -1) if not found
  *
  * @param code1 former code, also used in second try when mismatch
