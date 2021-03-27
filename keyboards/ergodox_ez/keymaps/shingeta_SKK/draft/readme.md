@@ -6,14 +6,14 @@ SKKに対応した新下駄入力用のレイアウト
 
 より詳細に書くと、以下の条件を想定している
 
-+ OSの入力言語は日本語<span id=body1><sup>[1](#foot1)</sup></span>
++ OSの入力言語は日本語[^1]
 + ローマ字入力
 + SKKに対応
     + "C-j", "l", "q", "x", ">"の入力に対応
     + "っ"の入力
         + "かった" -> "katta"のように、"xtu"ではなく子音を重ねる
         + "か<S-っ>た" -> "kaTta"、"かっ<S-た>" -> "katTa"のように、シフト入力のタイミングを厳密にとる
-        + 便宜上、2連打以上すると2回目からは"っ"を出力し、以降の入力に影響を及ぼさない<span id=body2><sup>[2](#foot2)</sup></span>
+        + 便宜上、2連打以上すると2回目からは"っ"を出力し、以降の入力に影響を及ぼさない[^2]
 + SandSを採用
 + 変換の決定を"asdfghjkl"で行う
 + 新下駄の仕様
@@ -51,15 +51,15 @@ LIB_SRC += str_utl.c
 + `#define`を使って`SGTA, SGTS`にレイアウト番号を振って、
 `custom_keycodes`に`CS_SGKEY, CS_SGKEY_S`を追加する  
     ただし、`SGTA` < `SGTS`でなければならず、使用時に`SGTA`と`SGTS`の間の番号のレイヤーが
-使用されていないことが保障されなくてはならない<span id=body3><sup>[3](#foot3)</sup></span>
+使用されていないことが保障されなくてはならない[^3]
 + `keymaps[][][]`の`SGTA, SGTS`を当レイアウトの`keymap.c`からコピペする  
     配列自体をいじりたい場合は下の[手を加えたい人の為の概要](#手を加えたい人の為の概要)を参照
-+ TODO:<span id=body4><sup>[4](#foot4)</sup></span> `keymaps[][][]`から`SGTA`レイヤーを呼び出せるようにする
++ TODO:[^4] `keymaps[][][]`から`SGTA`レイヤーを呼び出せるようにする
 + `process_record_user`の`CS_SGKEY, CS_SGKEY_S`に関する処理をコピペする  
     この時、`record_event`に関わらずに`shingeta_key()`を呼び出さなければならない
 (キーの押下と離しの両方が必要なため)
 + `matrix_init_user()`で`init_shingeta_mode()`を呼び出す
-+ TODO:<span id=body4><sup>[4](#foot4)</sup></span> `SGTA`レイヤーの切り替え時に以下の関数を呼び出す
++ TODO:[^4] `SGTA`レイヤーの切り替え時に以下の関数を呼び出す
     + `on_enter_shingeta_mode` (`SGTA`レイヤー開始時)
     + `on_exit_shingeta_mode` (`SGTA`レイヤー終了時)
 
@@ -100,7 +100,7 @@ LIB_SRC += str_utl.c
 `SGTA`には`CS_SGKEY`、`SGTS`には`CS_SGKEY_S`を追加する
 + SandS用のキーについて、`SGTA`に`LT(SGTS,KC_SPC)`、`SGTS`に`KC_TRNS`を追加する
 + その他通常の配列と同様の操作
-    + TODO:<span id=body4><sup>[4](#foot4)</sup></span> <shingetaオン><shingetaオフ>の関数を呼び出すキーを配置する
+    + TODO:[^4] <shingetaオン><shingetaオフ>の関数を呼び出すキーを配置する
     + 新下駄に必要な英字入力を空いたスペースに登録する
 
 **コマンドを変更したい場合**
@@ -113,7 +113,7 @@ LIB_SRC += str_utl.c
 #### コマンド関数の実装
 
 第1引数`string`はコマンドの実体の文字列がコピーされた変数で、大きさは`SHINGETA_STRING_MAX_LENGTH *
-                      2`文字分である。<span id=body5><sup>[5](#foot5)</sup></span>自由に変更する事が許される。<span id=body6><sup>[6](#foot6)</sup></span>
+                      2`文字分である。[^5]自由に変更する事が許される。[^6]
 第2引数`is_shifted`はコマンドの打鍵時にシフトが押された時`true`である。
 
 基本的には、他のコマンド関数のように
@@ -124,7 +124,7 @@ xtu_common(string);
 send_string(string);
 ```
 
-を最初に行う想定である。これは、直前の打鍵が"っ"だった場合の対処である。<span id=body7><sup>[7](#foot7)</sup></span>
+を最初に行う想定である。これは、直前の打鍵が"っ"だった場合の対処である。[^7]
 
 shingetaモードの初期化に関わる関数として
 
@@ -132,7 +132,7 @@ shingetaモードの初期化に関わる関数として
 + `on_enter_shingeta_mode()`: モード開始時に呼ばれる
 + `on_exit_shingeta_mode()`: モード終了時に呼ばれる
 
-があるので、グローバル変数を用いる場合はこれらを活用してほしい。<span id=body8><sup>[8](#foot8)</sup></span>
+があるので、グローバル変数を用いる場合はこれらを活用してほしい。[^8]
 
 #### コマンド変更 `shingeta_code.h`
 
@@ -163,7 +163,7 @@ shingetaモードの初期化に関わる関数として
 ただし、単押しの配列のキーは`NA_NUMBER`である。
 
 同時押しについて、片方が一致する単押しと出力文字が同じだった場合は弾くようにしてあるので、
-単押しと同じ文字を記述しても構わないし、差分だけ記述しても構わない。<span id=body9><sup>[9](#foot9)</sup></span>
+単押しと同じ文字を記述しても構わないし、差分だけ記述しても構わない。[^9]
 
 出力文字について、通常の文字は文字列型であり、コマンドはコマンドの番号(1-indexed)を`Int`型で記述する。
 
@@ -178,34 +178,23 @@ shingetaモードの初期化に関わる関数として
 `shingeta_code.txt`は、これを用いて`shingeta_code.c`の`shingeta_codes[]`の中身をそのまま置き換えれば良い
 
 `shingeta_macro.txt`は、これを用いて`shingeta.h`の該当部分を置き換えれば良い。
-その際、`COMMAND_NUM`をコマンド数に書き換える必要がある<span id=body10><sup>[10](#foot10)</sup></span>
+その際、`COMMAND_NUM`をコマンド数に書き換える必要がある[^10]
 
 `shingeta_code.csv`は出力されたコードの閲覧用であり、C言語のソースには用いない
 
 #### キー変更 `shingeta_code.h`
 
-出力文字を登録する連想配列のサイズは初期値で256になっているが<span id=body11><sup>[11](#foot11)</sup></span>、これで足りない場合は`HASH_MAX`の数値を適当に変更した上で、
+出力文字を登録する連想配列のサイズは初期値で256になっているが[^11]、これで足りない場合は`HASH_MAX`の数値を適当に変更した上で、
 `get_hash(c1, c2)`によって定義されているハッシュ関数を新たなサイズに合わせたものに変更する必要がある
 
-<span id=foot1>1</span>: `send_string()`の文字コードに留意する必要がある[↩](#body1)
-
-<span id=foot2>2</span>: 上記の条件のみを満たすようにすると、"っ"を単体で出力する方法が無くなるため[↩](#body2)
-
-<span id=foot3>3</span>: 基本的には連番を想定している[↩](#body3)
-
-<span id=foot4>4</span>: `../lum1narie/keymap.c`で実装した、`tgl_sgta_misc()`や`process_record_user()`の`case CS_OFF_SGTA`ように、レイヤーの変更と`on_`の関数群を紐付ける必要がある[↩](#body4)
-
-<span id=foot5>5</span>: "っ"の処理は"xtu"を先頭につける場合があり、その場合の`send_normal_string()`中で要求される最大文字数に合わせてある[↩](#body5)
-
-<span id=foot6>6</span>: この実装にした理由は思い出せないが、恐らくは全コマンドを`shingeta_send_string()`内にベタ打ちしていた時に`string_to_send`を最初から最後まで使い回していた時の名残りだと考えられる。(実際に`send_normal_string()`が呼び出されるときはそのフローになる)[↩](#body6)
-
-<span id=foot7>7</span>: この共通処理をコマンド呼び出し時に勝手に行わないのは、`xtu_input()`も1つのコマンドとして一般化した処理にしたかったからである[↩](#body7)
-
-<span id=foot8>8</span>: これらの関数の呼び出しは`keymap.c`で正しく行わなければならないので、[使用法 `keymap.c`](#使用法-keymap.c)を参照して各自間違えないように設定してほしい[↩](#body8)
-
-<span id=foot9>9</span>: 完全に一致する2つ組のキーを重複して登録した場合は、処理上で先に読み込まれた方の値を採択するようにしている。もちろん、同じ出力文字が入力されていることを想定している。[↩](#body9)
-
-<span id=foot10>10</span>: TODO: これも本来は`shingeta_macro.txt`に出力されて然るべき内容だと思われる。後で作る。[↩](#body10)
-
-<span id=foot11>11</span>: 現時点で登録数は168である。筆者は配列サイズの0.8倍程までが実用的に使える限度であると聞き及んでいる。[↩](#body11)
-
+[^1]: `send_string()`の文字コードに留意する必要がある
+[^2]: 上記の条件のみを満たすようにすると、"っ"を単体で出力する方法が無くなるため
+[^3]: 基本的には連番を想定している
+[^4]: `../lum1narie/keymap.c`で実装した、`tgl_sgta_misc()`や`process_record_user()`の`case CS_OFF_SGTA`ように、レイヤーの変更と`on_`の関数群を紐付ける必要がある
+[^5]: "っ"の処理は"xtu"を先頭につける場合があり、その場合の`send_normal_string()`中で要求される最大文字数に合わせてある
+[^6]: この実装にした理由は思い出せないが、恐らくは全コマンドを`shingeta_send_string()`内にベタ打ちしていた時に`string_to_send`を最初から最後まで使い回していた時の名残りだと考えられる。(実際に`send_normal_string()`が呼び出されるときはそのフローになる)
+[^7]: この共通処理をコマンド呼び出し時に勝手に行わないのは、`xtu_input()`も1つのコマンドとして一般化した処理にしたかったからである
+[^8]: これらの関数の呼び出しは`keymap.c`で正しく行わなければならないので、[使用法 `keymap.c`](#使用法-keymap.c)を参照して各自間違えないように設定してほしい
+[^9]: 完全に一致する2つ組のキーを重複して登録した場合は、処理上で先に読み込まれた方の値を採択するようにしている。もちろん、同じ出力文字が入力されていることを想定している。
+[^10]: TODO: これも本来は`shingeta_macro.txt`に出力されて然るべき内容だと思われる。後で作る。
+[^11]: 現時点で登録数は168である。筆者は配列サイズの0.8倍程までが実用的に使える限度であると聞き及んでいる。
