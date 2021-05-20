@@ -15,4 +15,4 @@ FORCE_NKRO = yes
 TAP_DANCE_ENABLE = yes
 
 SRC += shingeta.c shingeta_code.c
-LIB_SRC += lum_util_qmk.c
+LIB_SRC += str_utl.c

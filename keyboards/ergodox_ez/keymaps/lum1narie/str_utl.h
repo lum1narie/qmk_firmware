@@ -17,10 +17,12 @@ inline uint8_t position_to_8bit(keypos_t pos) {
 
 /**
  * @brief make string with っ(xtu) on head
+ * upper-case letteres on head are treated as lower-case
  *
  * ex)
  * + a -> xtu_a (n?[aiueon])
  * + ka -> k_ka (others)
+ * + Sa -> s_Sa (others with upper case)
  *
  * @param given_str string to be converted
  * @return

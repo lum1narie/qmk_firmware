@@ -382,7 +382,7 @@ void matrix_init_user(void) {
     layer_state = INIT_LAYER_STATE;
 
     // init variables in shingeta
-    init_shingeta();
+    init_shingeta_mode();
 }
 
 // refrence point of time when current brightness wave is start
