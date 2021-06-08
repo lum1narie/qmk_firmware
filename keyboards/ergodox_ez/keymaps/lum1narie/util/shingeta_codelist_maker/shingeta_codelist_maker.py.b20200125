@@ -1,0 +1,64 @@
+import csv
+from operator import itemgetter
+from code import *
+
+CODE_CSV_FILE = "shingeta_code.csv"
+FORMED_LIST_C_FILE = "shingeta_code.txt"
+MACRO_C_FILE = "shingeta_macro.txt"
+
+C_INDENT = 8
+C_LINE_MAX_LENGTH = 79
+
+# def get_hash(code):
+#     return ((((code[0] % 256) * 40503) ^ ((code[1] % 256) * 40503)) & 0xFFFF) >> (16 - HASH_DIGIT)
+
+def output_string(s):
+    if isinstance(s,str):
+        return "\"{}\"".format(s)
+    else:
+        return command(s)
+
+if __name__ == "__main__":
+    shingeta_code_dict = dict()
+
+    for (i, s) in enumerate(shingeta_string_dict[NA_NUMBER]):
+        if s == "":
+            continue
+
+        shingeta_code_dict[(code_mapping[i], NA_NUMBER)] = s
+
+    modifiers = [i for i in shingeta_string_dict.keys() if i != NA_NUMBER]
+
+    for m in modifiers:
+        for (i, s) in enumerate(shingeta_string_dict[m]):
+            if s == "":
+                continue
+
+            if (code_mapping[i], NA_NUMBER) in shingeta_code_dict:
+                if s == shingeta_code_dict[(code_mapping[i], NA_NUMBER)]:
+                    continue
+            if (m, code_mapping[i]) in shingeta_code_dict:
+                if s == shingeta_code_dict[(m, code_mapping[i])]:
+                    continue
+
+            shingeta_code_dict[(code_mapping[i], m)] = s
+
+    output_codes = [(min(c[0], c[1]), max(c[0], c[1]), output_string(s)) for (c, s) in shingeta_code_dict.items()]
+    output_codes.sort()
+    output_codes.sort(key=itemgetter(1), reverse=True)
+
+    with open(CODE_CSV_FILE, 'w') as f:
+        writer = csv.writer(f, lineterminator='\n')
+        writer.writerow(("code1", "code2", "str"))
+        writer.writerows(output_codes)
+
+    with open(FORMED_LIST_C_FILE, 'w') as f:
+        for code in output_codes:
+            f.write("{{{}, {}, {}}},\n".format(hex(code[0]), hex(code[1]), code[2]))
+        f.write("{0xff, 0xff, \"\"}")
+
+    with open(MACRO_C_FILE, 'w') as f:
+        for i, macro in enumerate(commands):
+            f.write("#define {} \"c{:02}\"\n".format(macro, i + 1))
+
+    print("{} codes written".format(len(output_codes)))

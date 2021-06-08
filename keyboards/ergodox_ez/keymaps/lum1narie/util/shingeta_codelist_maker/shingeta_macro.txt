@@ -1,0 +1,5 @@
+#define COMMAND_1 "c01"
+#define COMMAND_2 "c02"
+#define COMMAND_3 "c03"
+#define COMMAND_4 "c04"
+#define COMMAND_5 "c05"
