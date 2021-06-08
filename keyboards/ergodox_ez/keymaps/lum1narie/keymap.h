@@ -18,8 +18,8 @@
 #define FORCE_NKRO
 // ========================================
 
-#define INIT_DEFAULT_LAYER  0
-#define INIT_LAYER_STATE    0x0001
+#define INIT_DEFAULT_LAYER  QGML
+#define INIT_LAYER_STATE    (1<<QGML)
 
 #define LED_SOLID_STRENGTH          15
 #define LED_BLINK_MIN_STRENGTH      3
@@ -77,10 +77,8 @@ enum tap_dance_id {
 enum custom_keycodes {
     CS_SGKEY = SAFE_RANGE,
     CS_SGKEY_S,
-    CS_SET_QGML,
-    CS_SET_QWER,
+    CS_ON_SGTA,
     CS_OFF_SGTA,
-    CS_OFF_MISC,
     CS_SENDLYR, /*###DEBUG###*/
 };
 
