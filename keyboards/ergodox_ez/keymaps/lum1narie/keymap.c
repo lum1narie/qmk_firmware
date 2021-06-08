@@ -45,19 +45,19 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
             KC_TAB,   KC_Q,    KC_G,    KC_M,    KC_L,    KC_W,   JP_MINS,
             MO(LYRS), KC_D,    KC_S,    KC_T,    KC_N,    KC_R,
             KC_LSFT,  KC_Z,    KC_X,    KC_C,    KC_V,    KC_J,   KC_LGUI,
-            KC_LCTL,  JP_SLSH, JP_BSLS, JP_HASH, LCA_T(KC_NO),
+            KC_LCTL,  JP_SLSH, JP_BSLS, JP_HASH, LCA_T(XXXXXXX),
                                                          KC_HOME, KC_PGDN,
                                                                   KC_LALT,
-                                         LT(QGMS,KC_SPC), KC_ENT, KC_LCTL,
+                                        LT(QGMS,KC_SPC), KC_ENT,  KC_LCTL,
             // right hand
                 JP_AMPR, JP_ASTR, JP_RPRN, JP_PLUS, JP_RBRC, JP_EXLM, JP_ZHTG,
-                JP_AT,   KC_Y,    KC_F,    KC_U,    KC_B,    JP_SCLN, KC_NO,
+                JP_AT,   KC_Y,    KC_F,    KC_U,    KC_B,    JP_SCLN, XXXXXXX,
                          KC_I,    KC_A,    KC_E,    KC_O,    KC_H,    KC_BSPC,
                 KC_RGUI, KC_K,    KC_P,    KC_UP,   JP_COMM, JP_DOT,  KC_DEL,
                                   KC_LEFT, KC_DOWN, KC_RGHT, JP_QUOT, KC_RCTL,
                 KC_PGUP, KC_END,
                 KC_RALT,
-                KC_RCTL, KC_ENT, LT(QGMS,KC_SPC)
+                KC_RCTL, KC_ENT,  LT(QGMS,KC_SPC)
         ),
 
     /* Keymap 1: shifted qgmlwy layer
@@ -84,22 +84,22 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [QGMS] = LAYOUT_ergodox(  // layer 1 : layer 0 + shift
             // left hand
             S(KC_ESC),  KC_1,    KC_2,    KC_3,    KC_4,    KC_5,    JP_TILD,
-            KC_TRNS,    S(KC_Q), S(KC_G), S(KC_M), S(KC_L), S(KC_W), JP_UNDS,
-            KC_NO,      S(KC_D), S(KC_S), S(KC_T), S(KC_N), S(KC_R),
-            KC_TRNS,    S(KC_Z), S(KC_X), S(KC_C), S(KC_V), S(KC_J), S(KC_LGUI),
-            S(KC_LCTL), JP_QUES, JP_PIPE, JP_GRV,  MEH_T(KC_NO),
+            _______,    S(KC_Q), S(KC_G), S(KC_M), S(KC_L), S(KC_W), JP_UNDS,
+            XXXXXXX,    S(KC_D), S(KC_S), S(KC_T), S(KC_N), S(KC_R),
+            _______,    S(KC_Z), S(KC_X), S(KC_C), S(KC_V), S(KC_J), S(KC_LGUI),
+            S(KC_LCTL), JP_QUES, JP_PIPE, JP_GRV,  MEH_T(XXXXXXX),
                                                          S(KC_HOME), S(KC_PGDN),
                                                                      S(KC_LALT),
-                                                KC_TRNS, S(KC_ENT),  S(KC_LCTL),
+                                                _______, S(KC_ENT),  S(KC_LCTL),
             // right hand
-                JP_PERC,    KC_6,    KC_7,       KC_8,       KC_9,       KC_0,    KC_TRNS,
-                JP_CIRC,    S(KC_Y), S(KC_F),    S(KC_U),    S(KC_B),    JP_COLN, KC_TRNS,
+                JP_PERC,    KC_6,    KC_7,       KC_8,       KC_9,       KC_0,    _______,
+                JP_CIRC,    S(KC_Y), S(KC_F),    S(KC_U),    S(KC_B),    JP_COLN, _______,
                             S(KC_I), S(KC_A),    S(KC_E),    S(KC_O),    S(KC_H), S(KC_BSPC),
                 S(KC_RGUI), S(KC_K), S(KC_P),    S(KC_UP),   JP_LT,      JP_GT,   S(KC_DEL),
-                                     S(KC_LEFT), S(KC_DOWN), S(KC_RGHT), JP_DQT,  KC_NO,
+                                     S(KC_LEFT), S(KC_DOWN), S(KC_RGHT), JP_DQT,  XXXXXXX,
                 S(KC_PGUP), S(KC_END),
                 S(KC_RALT),
-                S(KC_RCTL), S(KC_ENT), KC_TRNS
+                S(KC_RCTL), S(KC_ENT), _______
         ),
 
     /* Keymap 2: qwerty layer
@@ -125,23 +125,23 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     */
     [QWER] = LAYOUT_ergodox(  // layer 2 : qwerty
             // left hand
-            KC_ESC,   KC_1,    KC_2,    KC_3,   KC_4,   KC_5,   JP_LBRC,
-            KC_TAB,   KC_Q,    KC_W,    KC_E,   KC_R,   KC_T,   JP_MINS,
-            MO(LYRS), KC_A,    KC_S,    KC_D,   KC_F,   KC_G,
-            KC_LSFT,  KC_Z,    KC_X,    KC_C,   KC_V,   KC_B,   KC_LGUI,
-            KC_LCTRL, JP_SLSH, JP_BSLS, JP_GRV, LCA_T(KC_NO),
-                                                       KC_HOME, KC_PGDN,
-                                                                KC_LALT,
-                                                KC_SPC, KC_ENT, KC_LCTL,
+            KC_ESC,   KC_1,    KC_2,    KC_3,    KC_4,    KC_5,    JP_LBRC,
+            KC_TAB,   KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,    JP_MINS,
+            MO(LYRS), KC_A,    KC_S,    KC_D,    KC_F,    KC_G,
+            KC_LSFT,  KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,    KC_LGUI,
+            KC_LCTRL, JP_SLSH, JP_BSLS, JP_GRV,  LCA_T(XXXXXXX),
+                                                          KC_HOME, KC_PGDN,
+                                                                   KC_LALT,
+                                                  KC_SPC, KC_ENT,  KC_LCTL,
             // right hand
-                 JP_RBRC, KC_6, KC_7,    KC_8,    KC_9,    KC_0,    JP_ZHTG,
-                JP_QUOT, KC_Y, KC_U,    KC_I,    KC_O,    KC_P,    KC_DEL,
-                         KC_H, KC_J,    KC_K,    KC_L,    JP_SCLN, KC_BSPC,
-                KC_RGUI, KC_N, KC_M,    KC_UP,   JP_COMM, JP_DOT,  KC_RSFT,
-                               KC_LEFT, KC_DOWN, KC_RGHT, JP_PLUS, KC_RCTL,
+                JP_RBRC, KC_6,    KC_7,    KC_8,    KC_9,    KC_0,    JP_ZHTG,
+                JP_QUOT, KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,    KC_DEL,
+                         KC_H,    KC_J,    KC_K,    KC_L,    JP_SCLN, KC_BSPC,
+                KC_RGUI, KC_N,    KC_M,    KC_UP,   JP_COMM, JP_DOT,  KC_RSFT,
+                                  KC_LEFT, KC_DOWN, KC_RGHT, JP_PLUS, KC_RCTL,
                 KC_PGUP, KC_END,
                 KC_RALT,
-                KC_RCTL, KC_ENT, LT(QWES,KC_SPC)
+                KC_RCTL, KC_ENT,  LT(QWES,KC_SPC)
        ),
     /* Keymap 3: shifted qwerty layer
      *
@@ -167,63 +167,63 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [QWES] = LAYOUT_ergodox(  // layer 3 : layer 2 + Shift
             // left hand
             S(KC_ESC),  JP_EXLM, JP_AT,   JP_HASH, JP_DLR,  JP_PERC, JP_LCBR,
-            KC_TRNS,    S(KC_Q), S(KC_W), S(KC_E), S(KC_R), S(KC_T), JP_UNDS,
-            KC_NO,      S(KC_A), S(KC_S), S(KC_D), S(KC_F), S(KC_G),
-            KC_TRNS,    S(KC_Z), S(KC_X), S(KC_C), S(KC_V), S(KC_B), S(KC_LGUI),
-            S(KC_LCTL), JP_QUES, JP_PIPE, JP_TILD, MEH_T(KC_NO),
+            _______,    S(KC_Q), S(KC_W), S(KC_E), S(KC_R), S(KC_T), JP_UNDS,
+            XXXXXXX,    S(KC_A), S(KC_S), S(KC_D), S(KC_F), S(KC_G),
+            _______,    S(KC_Z), S(KC_X), S(KC_C), S(KC_V), S(KC_B), S(KC_LGUI),
+            S(KC_LCTL), JP_QUES, JP_PIPE, JP_TILD, MEH_T(XXXXXXX),
                                                          S(KC_HOME), S(KC_PGDN),
                                                                      S(KC_LALT),
-                                               S(KC_SPC), S(KC_ENT), S(KC_LCTL),
+                                              S(KC_SPC), S(KC_ENT),  S(KC_LCTL),
             // right hand
-                JP_RCBR,    JP_CIRC,    JP_AMPR,    JP_ASTR,    JP_LPRN,    JP_RPRN, KC_TRNS,
-                JP_QUOT,    S(KC_Y),    S(KC_U),    S(KC_I),    S(KC_O),    S(KC_P), S(KC_DEL),
-                            S(KC_H),    S(KC_J),    S(KC_K),    S(KC_L),    JP_COLN, S(KC_BSPC),
-                S(KC_RGUI), S(KC_N),    S(KC_M),    S(KC_UP),   JP_LT,      JP_GT,   KC_TRNS,
-                                        S(KC_LEFT), S(KC_DOWN), S(KC_RGHT), JP_EQL,  KC_NO,
+                JP_RCBR,    JP_CIRC, JP_AMPR,    JP_ASTR,    JP_LPRN,    JP_RPRN, _______,
+                JP_QUOT,    S(KC_Y), S(KC_U),    S(KC_I),    S(KC_O),    S(KC_P), S(KC_DEL),
+                            S(KC_H), S(KC_J),    S(KC_K),    S(KC_L),    JP_COLN, S(KC_BSPC),
+                S(KC_RGUI), S(KC_N), S(KC_M),    S(KC_UP),   JP_LT,      JP_GT,   _______,
+                                     S(KC_LEFT), S(KC_DOWN), S(KC_RGHT), JP_EQL,  XXXXXXX,
                 S(KC_PGUP), S(KC_END),
                 S(KC_RALT),
-                S(KC_RCTL), S(KC_ENT), KC_TRNS
+                S(KC_RCTL), S(KC_ENT), _______
     ),
 
     [SGTA] = LAYOUT_ergodox(  // layer 4 : shin geta
             // left hand
-            KC_TRNS,     CS_SGKEY, CS_SGKEY, CS_SGKEY, CS_SGKEY, CS_SGKEY, KC_NO,
-            KC_TRNS,     CS_SGKEY, CS_SGKEY, CS_SGKEY, CS_SGKEY, CS_SGKEY, LCTL(KC_J),
-            CS_OFF_SGTA, CS_SGKEY, CS_SGKEY, CS_SGKEY, CS_SGKEY, CS_SGKEY,
-            KC_TRNS,     CS_SGKEY, CS_SGKEY, CS_SGKEY, CS_SGKEY, CS_SGKEY, LCTL(KC_G),
-            KC_TRNS,     JP_GT,    KC_NO,    KC_NO,    KC_TRNS,
-                                                               KC_TRNS, KC_TRNS,
-                                                                        KC_TRNS,
-                                               LT(SGTS,KC_SPC), KC_ENT, KC_TRNS,
+            _______, SGTAKEY, SGTAKEY, SGTAKEY, SGTAKEY, SGTAKEY, XXXXXXX,
+            _______, SGTAKEY, SGTAKEY, SGTAKEY, SGTAKEY, SGTAKEY, LCTL(KC_J),
+            OFFSGTA, SGTAKEY, SGTAKEY, SGTAKEY, SGTAKEY, SGTAKEY,
+            _______, SGTAKEY, SGTAKEY, SGTAKEY, SGTAKEY, SGTAKEY, LCTL(KC_G),
+            _______, JP_GT,   XXXXXXX, XXXXXXX, _______,
+                                                         _______, _______,
+                                                                  _______,
+                                        LT(SGTS,KC_SPC), KC_ENT,  _______,
             // right hand
-                KC_NO, CS_SGKEY, CS_SGKEY, CS_SGKEY, CS_SGKEY, CS_SGKEY, KC_TRNS,
-                KC_L,  CS_SGKEY, CS_SGKEY, CS_SGKEY, CS_SGKEY, CS_SGKEY, CS_SGKEY,
-                       CS_SGKEY, CS_SGKEY, CS_SGKEY, CS_SGKEY, CS_SGKEY, KC_BSPC,
-                KC_Q,  CS_SGKEY, CS_SGKEY, CS_SGKEY, CS_SGKEY, CS_SGKEY, KC_DEL,
-                                 KC_LEFT,  KC_DOWN,  KC_UP,    KC_RGHT,  KC_TRNS,
-                KC_TRNS, KC_TRNS,
-                KC_TRNS,
-                KC_TRNS, KC_ENT, LT(SGTS,KC_SPC)
+                XXXXXXX, SGTAKEY, SGTAKEY, SGTAKEY, SGTAKEY, SGTAKEY, _______,
+                KC_L,    SGTAKEY, SGTAKEY, SGTAKEY, SGTAKEY, SGTAKEY, SGTAKEY,
+                         SGTAKEY, SGTAKEY, SGTAKEY, SGTAKEY, SGTAKEY, KC_BSPC,
+                KC_Q,    SGTAKEY, SGTAKEY, SGTAKEY, SGTAKEY, SGTAKEY, KC_DEL,
+                                  KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT, _______,
+                _______, _______,
+                _______,
+                _______, KC_ENT,  LT(SGTS,KC_SPC)
         ),
     [SGTS] = LAYOUT_ergodox(  // layer 5 : shift on shin geta
             // left hand
-            KC_TRNS,     CS_SGKEY_S, CS_SGKEY_S, CS_SGKEY_S, CS_SGKEY_S, CS_SGKEY_S, KC_NO,
-            KC_TRNS,     CS_SGKEY_S, CS_SGKEY_S, CS_SGKEY_S, CS_SGKEY_S, CS_SGKEY_S, LCTL(KC_J),
-            CS_OFF_SGTA, CS_SGKEY_S, CS_SGKEY_S, CS_SGKEY_S, CS_SGKEY_S, CS_SGKEY_S,
-            KC_TRNS,     CS_SGKEY_S, CS_SGKEY_S, CS_SGKEY_S, CS_SGKEY_S, CS_SGKEY_S, LCTL(KC_G),
-            KC_TRNS,     JP_GT,      KC_NO,      KC_NO,      KC_TRNS,
-                                                                         KC_TRNS, KC_TRNS,
-                                                                                  KC_TRNS,
-                                                                 KC_TRNS, KC_ENT, KC_TRNS,
+            _______, SGKEYSF, SGKEYSF, SGKEYSF, SGKEYSF, SGKEYSF, XXXXXXX,
+            _______, SGKEYSF, SGKEYSF, SGKEYSF, SGKEYSF, SGKEYSF, LCTL(KC_J),
+            OFFSGTA, SGKEYSF, SGKEYSF, SGKEYSF, SGKEYSF, SGKEYSF,
+            _______, SGKEYSF, SGKEYSF, SGKEYSF, SGKEYSF, SGKEYSF, LCTL(KC_G),
+            _______, JP_GT,   XXXXXXX, XXXXXXX, _______,
+                                                         _______, _______,
+                                                                  _______,
+                                                _______, KC_ENT,  _______,
             // right hand
-                KC_NO,   CS_SGKEY_S, CS_SGKEY_S, CS_SGKEY_S, CS_SGKEY_S, CS_SGKEY_S, KC_TRNS,
-                S(KC_L), CS_SGKEY_S, CS_SGKEY_S, CS_SGKEY_S, CS_SGKEY_S, CS_SGKEY_S, CS_SGKEY_S,
-                         CS_SGKEY_S, CS_SGKEY_S, CS_SGKEY_S, CS_SGKEY_S, CS_SGKEY_S, KC_BSPC,
-                S(KC_Q), CS_SGKEY_S, CS_SGKEY_S, CS_SGKEY_S, CS_SGKEY_S, CS_SGKEY_S, KC_DEL,
-                                     KC_LEFT,    KC_DOWN,    KC_UP,      KC_RGHT,    KC_TRNS,
-                KC_TRNS, KC_TRNS,
-                KC_TRNS,
-                KC_TRNS, KC_ENT, KC_TRNS
+                XXXXXXX, SGKEYSF, SGKEYSF, SGKEYSF, SGKEYSF, SGKEYSF, _______,
+                S(KC_L), SGKEYSF, SGKEYSF, SGKEYSF, SGKEYSF, SGKEYSF, SGKEYSF,
+                         SGKEYSF, SGKEYSF, SGKEYSF, SGKEYSF, SGKEYSF, KC_BSPC,
+                S(KC_Q), SGKEYSF, SGKEYSF, SGKEYSF, SGKEYSF, SGKEYSF, KC_DEL,
+                                  KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT, _______,
+                _______, _______,
+                _______,
+                _______, KC_ENT,  _______
         ),
 
 
@@ -251,43 +251,43 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [MISC] = LAYOUT_ergodox(  // layer 6 : misc
             // left hand
             KC_ESC,   KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,   KC_F6,
-            KC_TRNS,  KC_BRID, KC_UP,   KC_BRIU, KC_PAUS, KC_VOLU, KC_PSCR,
+            _______,  KC_BRID, KC_UP,   KC_BRIU, KC_PAUS, KC_VOLU, KC_PSCR,
             TG(MISC), KC_LEFT, KC_DOWN, KC_RGHT, KC_MPLY, KC_VOLD,
-            KC_TRNS,  KC_BTN1, KC_MS_U, KC_BTN2, KC_MNXT, KC_MUTE, KC_SYSREQ,
-            KC_TRNS,  KC_MS_L, KC_MS_D, KC_MS_R, KC_MPRV,
-                                                            KC_TRNS, KC_TRNS,
-                                                                     KC_TRNS,
-                                             LSFT_T(KC_SPC), KC_ENT, KC_TRNS,
+            _______,  KC_BTN1, KC_MS_U, KC_BTN2, KC_MNXT, KC_MUTE, KC_SYSREQ,
+            _______,  KC_MS_L, KC_MS_D, KC_MS_R, KC_MPRV,
+                                                          _______, _______,
+                                                                   _______,
+                                          LSFT_T(KC_SPC), KC_ENT,  _______,
             // right hand
-                KC_F7,   KC_F8,   KC_F9, KC_F10,  KC_F11, KC_F12,  KC_WAKE,
-                KC_INS,  KC_TAB,  KC_P7, KC_P8,   KC_P9,  KC_PAST, KC_TRNS,
-                         KC_PSLS, KC_P4, KC_P5,   KC_P6,  KC_PMNS, KC_TRNS,
-                KC_CAPS, KC_NLCK, KC_P1, KC_P2,   KC_P3,  KC_PPLS, KC_RSFT,
-                                  KC_P0, KC_PDOT, KC_NO,  KC_PENT, KC_TRNS,
-                KC_TRNS, KC_TRNS,
-                KC_TRNS,
-                KC_TRNS, KC_ENT, RSFT_T(KC_SPC)
+                KC_F7,   KC_F8,   KC_F9,   KC_F10,  KC_F11,  KC_F12,  KC_WAKE,
+                KC_INS,  KC_TAB,  KC_P7,   KC_P8,   KC_P9,   KC_PAST, _______,
+                         KC_PSLS, KC_P4,   KC_P5,   KC_P6,   KC_PMNS, _______,
+                KC_CAPS, KC_NLCK, KC_P1,   KC_P2,   KC_P3,   KC_PPLS, KC_RSFT,
+                                  KC_P0,   KC_PDOT, XXXXXXX, KC_PENT, _______,
+                _______, _______,
+                _______,
+                _______, KC_ENT,  RSFT_T(KC_SPC)
         ),
 
     [LYRS] = LAYOUT_ergodox(
         // left hand
-        RESET,   KC_NO,    KC_NO,    KC_NO, KC_NO, KC_NO, KC_NO,
-        KC_NO,   DF(QGML), DF(QWER), KC_NO, KC_NO, KC_NO, KC_NO,
-        KC_TRNS, TG(SGTA), TG(MISC), KC_NO, KC_NO, KC_NO,
-        KC_NO,   KC_NO,    KC_NO,    KC_NO, KC_NO, KC_NO, KC_NO,
-        KC_NO,   KC_NO,    KC_NO,    KC_NO, KC_NO,
-                                                   KC_NO, KC_NO,
-                                                          KC_NO,
-                                            KC_NO, KC_NO, KC_NO,
+        RESET,   XXXXXXX,  XXXXXXX,  XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
+        XXXXXXX, DF(QGML), DF(QWER), XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
+        _______, ONSGTA,   TG(MISC), XXXXXXX, XXXXXXX, XXXXXXX,
+        XXXXXXX, XXXXXXX,  XXXXXXX,  XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
+        XXXXXXX, XXXXXXX,  XXXXXXX,  XXXXXXX, XXXXXXX,
+                                                       XXXXXXX, XXXXXXX,
+                                                                XXXXXXX,
+                                              XXXXXXX, XXXXXXX, XXXXXXX,
         // right hand
-            KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,
-            KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,
-                   KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,
-            KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,
-                          KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,
-            KC_NO, KC_NO,
-            KC_NO,
-            KC_NO, KC_NO, KC_NO
+            XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
+            XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
+                     XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
+            XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
+                              XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
+            XXXXXXX, XXXXXXX,
+            XXXXXXX,
+            XXXXXXX, XXXXXXX, XXXXXXX
         )
 };
 // clang-format on

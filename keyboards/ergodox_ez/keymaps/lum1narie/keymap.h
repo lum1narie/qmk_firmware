@@ -82,6 +82,11 @@ enum custom_keycodes {
     CS_SENDLYR, /*###DEBUG###*/
 };
 
+#define SGTAKEY CS_SGKEY
+#define SGKEYSF CS_SGKEY_S
+#define ONSGTA CS_ON_SGTA
+#define OFFSGTA CS_OFF_SGTA
+#define SENDLYR CS_SENDLYR
 
 
 #endif /* ERGODOX_EZ_LUM1NARIE_KEYMAP_H_ */
