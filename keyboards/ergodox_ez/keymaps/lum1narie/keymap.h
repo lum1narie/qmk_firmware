@@ -52,7 +52,9 @@
 #define IS_SHIFTED (IS_LAYER_ON(QGMS) || IS_LAYER_ON(QWES))
 
 enum layer_id {
-    QGMLWY = 0, // qgmlwy(carpalx) layer (default)
+    BEAKL15 = 0, // BEAKL15 layer (default)
+    BEAKL15_S, // shift on BEAKL15
+    QGMLWY,     // qgmlwy(carpalx) layer
     QGMLWY_S,   // shift on qgmlwy
     QWERTY,     // qwerty layer
     QWERTY_S,   // shift on qwerty
@@ -62,6 +64,8 @@ enum layer_id {
     LAYERS, // for switching layers
 };
 
+#define BK15 BEAKL15
+#define B15S BEAKL15_S
 #define QGML QGMLWY
 #define QGMS QGMLWY_S
 #define QWER QWERTY

@@ -18,7 +18,15 @@
 
 // clang-format off
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
-    /* Keymap 0: qgmlwy layer
+    /* TODO: implement M layer
+     * BEAKL 15
+     * 40123 76598
+     * QHOUX GCRFZ
+     * YIEA. DSTNB
+     * J,;K, WMLPV
+     */
+
+    /* qgmlwy layer
     *
     * ,---------------------------------------------------.           ,--------------------------------------------------.
     * | Esc     |   [  |   {  |   }  |   (  |   =  |  $   |           |  &   |   *  |   )  |   +  |   }  |   !  | Zenkaku|
@@ -39,7 +47,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     *                                 |  L1  |      | Ctrl |       | Ctrl |      | L1   |
     *                                 `--------------------'       `--------------------'
     */
-    [QGML] = LAYOUT_ergodox(  // layer 0 : default
+    [QGML] = LAYOUT_ergodox(
             // left hand
             KC_ESC,   JP_LBRC, JP_LCBR, JP_RCBR, JP_LPRN, JP_EQL, JP_DLR,
             KC_TAB,   KC_Q,    KC_G,    KC_M,    KC_L,    KC_W,   JP_MINS,
@@ -60,7 +68,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                 KC_RCTL, KC_ENT,  LT(QGMS,KC_SPC)
         ),
 
-    /* Keymap 1: shifted qgmlwy layer
+    /* shifted qgmlwy layer
      *
      * ,---------------------------------------------------.           ,--------------------------------------------------.
      * |         |   1  |   2  |   3  |   4  |   5  |  ~   |           |  %   |   6  |   7  |   8  |   9  |   0  |        |
@@ -81,7 +89,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
      *                                 |      |      |      |       |      |      |      |
      *                                 `--------------------'       `--------------------'
      */
-    [QGMS] = LAYOUT_ergodox(  // layer 1 : layer 0 + shift
+    [QGMS] = LAYOUT_ergodox(
             // left hand
             S(KC_ESC),  KC_1,    KC_2,    KC_3,    KC_4,    KC_5,    JP_TILD,
             _______,    S(KC_Q), S(KC_G), S(KC_M), S(KC_L), S(KC_W), JP_UNDS,
@@ -102,7 +110,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                 S(KC_RCTL), S(KC_ENT), _______
         ),
 
-    /* Keymap 2: qwerty layer
+    /* qwerty layer
     *
     * ,---------------------------------------------------.           ,--------------------------------------------------.
     * | Esc     |   1  |   2  |   3  |   4  |   5  |  [   |           |  ]   |   6  |   7  |   8  |   9  |   0  | Zenkaku|
@@ -123,7 +131,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     *                                 |      | L3   | Ctrl |       | Ctrl |      | L3   |
     *                                 `--------------------'       `--------------------'
     */
-    [QWER] = LAYOUT_ergodox(  // layer 2 : qwerty
+    [QWER] = LAYOUT_ergodox(
             // left hand
             KC_ESC,   KC_1,    KC_2,    KC_3,    KC_4,    KC_5,    JP_LBRC,
             KC_TAB,   KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,    JP_MINS,
@@ -143,7 +151,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                 KC_RALT,
                 KC_RCTL, KC_ENT,  LT(QWES,KC_SPC)
        ),
-    /* Keymap 3: shifted qwerty layer
+    /* shifted qwerty layer
      *
      * ,---------------------------------------------------.           ,--------------------------------------------------.
      * |         |   !  |   @  |   #  |   $  |   %  |  {   |           |  }   |   ^  |   &  |   *  |   (  |   )  |        |
@@ -164,7 +172,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
      *                                 |      |      |      |       |      |      |      |
      *                                 `--------------------'       `--------------------'
      */
-    [QWES] = LAYOUT_ergodox(  // layer 3 : layer 2 + Shift
+    [QWES] = LAYOUT_ergodox(
             // left hand
             S(KC_ESC),  JP_EXLM, JP_AT,   JP_HASH, JP_DLR,  JP_PERC, JP_LCBR,
             _______,    S(KC_Q), S(KC_W), S(KC_E), S(KC_R), S(KC_T), JP_UNDS,
@@ -185,7 +193,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                 S(KC_RCTL), S(KC_ENT), _______
     ),
 
-    [SGTA] = LAYOUT_ergodox(  // layer 4 : shin geta
+    [SGTA] = LAYOUT_ergodox(  // shin geta
             // left hand
             _______, SGTAKEY, SGTAKEY, SGTAKEY, SGTAKEY, SGTAKEY, XXXXXXX,
             _______, SGTAKEY, SGTAKEY, SGTAKEY, SGTAKEY, SGTAKEY, LCTL(KC_J),
@@ -205,7 +213,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                 _______,
                 _______, KC_ENT,  LT(SGTS,KC_SPC)
         ),
-    [SGTS] = LAYOUT_ergodox(  // layer 5 : shift on shin geta
+    [SGTS] = LAYOUT_ergodox(  // shift on shin geta
             // left hand
             _______, SGKEYSF, SGKEYSF, SGKEYSF, SGKEYSF, SGKEYSF, XXXXXXX,
             _______, SGKEYSF, SGKEYSF, SGKEYSF, SGKEYSF, SGKEYSF, LCTL(KC_J),
@@ -227,7 +235,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         ),
 
 
-    /* Keymap 6: misc layer
+    /* misc layer
      *
      * ,---------------------------------------------------.           ,-----------------------------------------------------.
      * | Esc     | F1   | F2   | F3   | F4   | F5   | F6   |           | F7   | F8   | F9   | F10  | F11  | F12  | Wake      |
@@ -248,7 +256,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
      *                                 | Shift|      |      |       |      |      |Shift |
      *                                 `--------------------'       `--------------------'
      */
-    [MISC] = LAYOUT_ergodox(  // layer 6 : misc
+    [MISC] = LAYOUT_ergodox(
             // left hand
             KC_ESC,   KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,   KC_F6,
             _______,  KC_BRID, KC_UP,   KC_BRIU, KC_PAUS, KC_VOLU, KC_PSCR,
@@ -269,7 +277,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                 _______, KC_ENT,  RSFT_T(KC_SPC)
         ),
 
-    [LYRS] = LAYOUT_ergodox(
+    [LYRS] = LAYOUT_ergodox( // layer switch
         // left hand
         RESET,   XXXXXXX,  XXXXXXX,  XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
         XXXXXXX, DF(QGML), DF(QWER), XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
