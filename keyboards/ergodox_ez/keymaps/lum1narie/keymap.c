@@ -23,8 +23,51 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
      * 40123 76598
      * QHOUX GCRFZ
      * YIEA. DSTNB
-     * J,;K, WMLPV
+     * J;,K' WMLPV
      */
+
+    // BEAKL 15 layout
+    [BK15] = LAYOUT_ergodox(
+            // left hand
+            KC_ESC,   KC_4,    KC_0,    KC_1,    KC_2,  KC_3,    JP_DLR,
+            KC_TAB,   KC_Q,    KC_H,    KC_O,    KC_U,  KC_X,    JP_MINS,
+            MO(LYRS), KC_Y,    KC_I,    KC_E,    KC_A,  JP_DOT,
+            KC_LSFT,  KC_J,    JP_SCLN, JP_COMM, KC_K,  JP_QUOT, KC_LGUI,
+            KC_LCTL,  JP_SLSH, JP_BSLS, JP_HASH, LCA_T(XXXXXXX),
+                                                        KC_HOME, KC_PGDN,
+                                                                 KC_LALT,
+                                       LT(B15S,KC_SPC), KC_ENT,  KC_LCTL,
+            // right hand
+                JP_AMPR, KC_7, KC_6,    KC_5,    KC_9,    KC_8, JP_ZHTG,
+                JP_AT,   KC_G, KC_C,    KC_R,    KC_F,    KC_Z, XXXXXXX,
+                         KC_D, KC_S,    KC_T,    KC_N,    KC_B, KC_BSPC,
+                KC_RGUI, KC_W, KC_M,    KC_UP,   KC_L,    KC_P, KC_DEL,
+                               KC_LEFT, KC_DOWN, KC_RGHT, KC_V, KC_RCTL,
+                KC_PGUP, KC_END,
+                KC_RALT,
+                KC_RCTL, KC_ENT,  LT(B15S,KC_SPC)
+        ),
+
+    [B15S] = LAYOUT_ergodox(
+            // left hand
+            S(KC_ESC),  JP_LBRC, JP_LCBR, JP_RCBR, JP_LPRN, JP_EQL,  JP_TILD,
+            S(KC_TAB),  S(KC_Q), S(KC_H), S(KC_O), S(KC_U), S(KC_X), JP_UNDS,
+            MO(LYRS),   S(KC_Y), S(KC_I), S(KC_E), S(KC_A), JP_GT,
+            S(KC_LSFT), S(KC_J), JP_COLN, JP_LT,   S(KC_K), JP_DQT,  S(KC_LGUI),
+            S(KC_LCTL), JP_QUES, JP_PIPE, JP_GRV,  MEH_T(XXXXXXX),
+                                                         S(KC_HOME), S(KC_PGDN),
+                                                                     S(KC_LALT),
+                                                _______, S(KC_ENT),  S(KC_LCTL),
+            // right hand
+                JP_PERC,    JP_ASTR,    JP_RPRN,    JP_PLUS,    JP_RBRC, JP_EXLM, _______,
+                JP_CIRC,    S(KC_G),    S(KC_C),    S(KC_R),    S(KC_F), S(KC_Z), _______,
+                            S(KC_D),    S(KC_S),    S(KC_T),    S(KC_N), S(KC_B), S(KC_BSPC),
+                S(KC_RGUI), S(KC_W),    S(KC_M),    S(KC_UP),   S(KC_L), S(KC_P), S(KC_DEL),
+                            S(KC_LEFT), S(KC_DOWN), S(KC_RGHT), S(KC_V), _______,
+                S(KC_PGUP), S(KC_END),
+                S(KC_RALT),
+                S(KC_RCTL), S(KC_ENT), _______
+        ),
 
     /* qgmlwy layer
     *
@@ -280,7 +323,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [LYRS] = LAYOUT_ergodox( // layer switch
         // left hand
         RESET,   XXXXXXX,  XXXXXXX,  XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
-        XXXXXXX, DF(QGML), DF(QWER), XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
+        XXXXXXX, DF(BK15), DF(QWER), DF(QGML), XXXXXXX, XXXXXXX, XXXXXXX,
         _______, ONSGTA,   TG(MISC), XXXXXXX, XXXXXXX, XXXXXXX,
         XXXXXXX, XXXXXXX,  XXXXXXX,  XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
         XXXXXXX, XXXXXXX,  XXXXXXX,  XXXXXXX, XXXXXXX,
