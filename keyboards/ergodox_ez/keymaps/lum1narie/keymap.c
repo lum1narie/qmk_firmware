@@ -454,7 +454,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 // Runs just one time when the keyboard initializes.
 void matrix_init_user(void) {
   layer_clear();
-  default_layer_set(1UL << INIT_DEFAULT_LAYER);
+  default_layer_set(INIT_LAYER_STATE);
 
   // init variables in shingeta
   init_shingeta_mode();
@@ -473,7 +473,7 @@ static inline void set_led_by_layer_state(void) {
   ergodox_led_all_set(LED_SOLID_STRENGTH);
 
   // set led expressing each mode
-  if (IS_LAYER_ON_STATE(default_layer_state, QGML)) {
+  if (IS_LAYER_ON_STATE(default_layer_state, BK15)) {
     ergodox_right_led_1_on();
   }
   if (IS_LAYER_ON(SGTA)) {
@@ -495,15 +495,15 @@ static inline void set_led_by_layer_state(void) {
     // position that means 0:bottom, LED_BLINK_WAVE_DURATION_MS:top
     uint16_t position_in_wave;
 
-    if (IS_LAYER_OFF(QWES)) {
-      // when shifted mode except QWER mode
+    if (IS_LAYER_OFF(B15S)) {
+      // when shifted mode except BK15 mode
       position_in_wave =
           abs_diff(2 * led_time_elapsed, LED_BLINK_WAVE_DURATION_MS);
       ergodox_led_all_set(interior_division(
           (uint32_t)LED_BLINK_MIN_STRENGTH, (uint32_t)LED_BLINK_MAX_STRENGTH,
           position_in_wave, LED_BLINK_WAVE_DURATION_MS));
     } else {
-      // when shifted in mode QWER
+      // when shifted in mode BK15
       ergodox_right_led_1_on();
       position_in_wave =
           abs_diff(2 * led_time_elapsed, LED_BLINK_WAVE_DURATION_MS);

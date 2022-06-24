@@ -18,8 +18,8 @@
 #define FORCE_NKRO
 // ========================================
 
-#define INIT_DEFAULT_LAYER  QGML
-#define INIT_LAYER_STATE    (1<<QGML)
+#define INIT_DEFAULT_LAYER  BK15
+#define INIT_LAYER_STATE    (1<<INIT_DEFAULT_LAYER)
 
 #define LED_SOLID_STRENGTH          15
 #define LED_BLINK_MIN_STRENGTH      3
