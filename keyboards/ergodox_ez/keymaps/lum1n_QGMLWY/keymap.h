@@ -49,7 +49,7 @@
 #define interior_division(l, r, pos, div) ((l * (div - pos) + r * pos) / div)
 
 // if at least one of shifted layer is active
-#define IS_SHIFTED (IS_LAYER_ON(QGMS) || IS_LAYER_ON(QWES))
+#define IS_SHIFTED (IS_LAYER_ON(QGMS))
 
 enum layer_id {
     QGMLWY = 0, // qgmlwy(carpalx) layer (default)
@@ -61,10 +61,6 @@ enum layer_id {
 #define QGML QGMLWY
 #define QGMS QGMLWY_S
 #define LYRS LAYERS
-
-enum tap_dance_id {
-    TD_ESCRST = 0, TD_MODES
-};
 
 enum custom_keycodes {
     CS_SENDLYR = SAFE_RANGE, /*###DEBUG###*/

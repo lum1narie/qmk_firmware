@@ -6,9 +6,8 @@
 
 #include "action_layer.h"
 #include "ergodox_ez.h"
-#include "keymap_jp.h"  // at quantum\keymap_extras
+#include "keymap_japanese.h"  // at quantum\keymap_extras
 #include "quantum.h"
-#include "shingeta.h"
 #include "wait.h"
 
 // supposed to used as ja-jp input keyboaord
@@ -47,7 +46,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                                                                   KC_LALT,
                                         LT(QGMS,KC_SPC), KC_ENT,  KC_LCTL,
             // right hand
-                JP_AMPR, JP_ASTR, JP_RPRN, JP_PLUS, JP_RBRC, JP_EXLM, JP_ZHTG,
+                JP_AMPR, JP_ASTR, JP_RPRN, JP_PLUS, JP_RBRC, JP_EXLM, JP_ZKHK,
                 JP_AT,   KC_Y,    KC_F,    KC_U,    KC_B,    JP_SCLN, XXXXXXX,
                          KC_I,    KC_A,    KC_E,    KC_O,    KC_H,    KC_BSPC,
                 KC_RGUI, KC_K,    KC_P,    KC_UP,   JP_COMM, JP_DOT,  KC_DEL,
@@ -92,8 +91,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                 JP_PERC,    KC_6,    KC_7,       KC_8,       KC_9,       KC_0,    _______,
                 JP_CIRC,    S(KC_Y), S(KC_F),    S(KC_U),    S(KC_B),    JP_COLN, _______,
                             S(KC_I), S(KC_A),    S(KC_E),    S(KC_O),    S(KC_H), S(KC_BSPC),
-                S(KC_RGUI), S(KC_K), S(KC_P),    S(KC_UP),   JP_LT,      JP_GT,   S(KC_DEL),
-                                     S(KC_LEFT), S(KC_DOWN), S(KC_RGHT), JP_DQT,  XXXXXXX,
+                S(KC_RGUI), S(KC_K), S(KC_P),    S(KC_UP),   JP_LABK,    JP_RABK, S(KC_DEL),
+                                     S(KC_LEFT), S(KC_DOWN), S(KC_RGHT), JP_DQUO, XXXXXXX,
                 S(KC_PGUP), S(KC_END),
                 S(KC_RALT),
                 S(KC_RCTL), S(KC_ENT), _______
@@ -126,7 +125,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
             KC_ESC,   KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,   KC_F6,
             _______,  KC_BRID, KC_UP,   KC_BRIU, KC_PAUS, KC_VOLU, KC_PSCR,
             TG(MISC), KC_LEFT, KC_DOWN, KC_RGHT, KC_MPLY, KC_VOLD,
-            _______,  KC_BTN1, KC_MS_U, KC_BTN2, KC_MNXT, KC_MUTE, KC_SYSREQ,
+            _______,  KC_BTN1, KC_MS_U, KC_BTN2, KC_MNXT, KC_MUTE, KC_SYRQ,
             _______,  KC_MS_L, KC_MS_D, KC_MS_R, KC_MPRV,
                                                           _______, _______,
                                                                    _______,
@@ -135,7 +134,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                 KC_F7,   KC_F8,   KC_F9,   KC_F10,  KC_F11,  KC_F12,  KC_WAKE,
                 KC_INS,  KC_TAB,  KC_P7,   KC_P8,   KC_P9,   KC_PAST, _______,
                          KC_PSLS, KC_P4,   KC_P5,   KC_P6,   KC_PMNS, _______,
-                KC_CAPS, KC_NLCK, KC_P1,   KC_P2,   KC_P3,   KC_PPLS, KC_RSFT,
+                KC_CAPS, KC_NUM,  KC_P1,   KC_P2,   KC_P3,   KC_PPLS, KC_RSFT,
                                   KC_P0,   KC_PDOT, XXXXXXX, KC_PENT, _______,
                 _______, _______,
                 _______,
@@ -144,7 +143,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
     [LYRS] = LAYOUT_ergodox(
         // left hand
-        RESET,   XXXXXXX,  XXXXXXX,  XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
+        QK_BOOT, XXXXXXX,  XXXXXXX,  XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
         XXXXXXX, DF(QGML), XXXXXXX,  XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
         _______, XXXXXXX,  XXXXXXX,  XXXXXXX, XXXXXXX, XXXXXXX,
         XXXXXXX, XXXXXXX,  XXXXXXX,  XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
